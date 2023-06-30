@@ -1,13 +1,11 @@
-import Header from "@/component/shared/Header";
+import BaseLayout from "@/component/layouts/BaseLayout";
 
 const CV = () => {
   return (
-    <>
-    <Header/>
-    <h1>this cv page</h1>
-    </>
+    <BaseLayout>
+      <h1>this cv page</h1>
+    </BaseLayout>
   );
-  
 };
 
 export default CV;
