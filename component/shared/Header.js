@@ -4,10 +4,10 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
 } from "reactstrap";
+import { Router } from "next/router";
 const BsNavLink = (props) => {
   const { href, title } = props;
   return (
@@ -27,11 +27,13 @@ const Header = () => {
         dark
         expand="md"
       >
-        <NavbarBrand>
+      <div className="navbar-brand">
+        
           <Link legacyBehavior href="/">
-            <a className="port-navbar-brand">Leila Faez</a>
+              <a className="port-navbar-brand">Leila Faez</a>
           </Link>
-        </NavbarBrand>
+        
+      </div>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
