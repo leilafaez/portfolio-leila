@@ -1,14 +1,18 @@
 import BaseLayout from "@/component/layouts/BaseLayout";
 import axios from "axios";
+import BasePage from "@/component/BasePage";
+
 
 const Portfolio = ({portfolio})=>{
     return (
-      <>
-        <BaseLayout />
+      
+        <BaseLayout >
+        <BasePage>
         <h1>{portfolio.title}</h1>
         <p>BODY :{portfolio.body}</p>
         <p>ID :{portfolio.id}</p>
-      </>
+        </BasePage>
+      </BaseLayout>
     );
 }
 
