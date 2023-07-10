@@ -7,7 +7,7 @@ import {
   Nav,
   NavItem,
 } from "reactstrap";
-import { Router } from "next/router";
+
 const BsNavLink = (props) => {
   const { href, title } = props;
   return (
@@ -16,6 +16,14 @@ const BsNavLink = (props) => {
     </Link>
   );
 };
+const LoginLink = () => (
+  <span className="nav-link port-navbar-link clickable">Login</span>
+);
+
+const LogoutLink = () => (
+  <span className="nav-link port-navbar-link clickable">Logout</span>
+);
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -27,13 +35,11 @@ const Header = () => {
         dark
         expand="md"
       >
-      <div className="navbar-brand">
-        
+        <div className="navbar-brand">
           <Link legacyBehavior href="/">
-              <a className="port-navbar-brand">Leila Faez</a>
+            <a className="port-navbar-brand">Leila Faez</a>
           </Link>
-        
-      </div>
+        </div>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -52,6 +58,14 @@ const Header = () => {
             {/* <NavItem className="port-navbar-item">
               <BsNavLink href="/cv" title="Cv" />
             </NavItem> */}
+          </Nav>
+          <Nav navbar>
+            <NavItem className="port-navbar-item">
+              <LoginLink />
+            </NavItem>
+            <NavItem className="port-navbar-item">
+              <LogoutLink />
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
