@@ -7,7 +7,7 @@ import { data } from "@/data";
 
 const Portfolio = () => {
 
-  const {posts,error} = useGetPosts();
+  const {posts,error,loading} = useGetPosts();
 
   const renderPosts = () => {
     return posts.map((post) =>
@@ -22,6 +22,10 @@ const Portfolio = () => {
   return (
     <BaseLayout>
       <BasePage>
+      {loading &&
+      <p> Loading data .....</p>
+
+      }
       {posts &&
         <ul>{renderPosts(posts)}</ul>
       }
