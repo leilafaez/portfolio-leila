@@ -1,16 +1,15 @@
 import BaseLayout from "@/component/layouts/BaseLayout";
 import Link from "next/link";
 import BasePage from "@/component/BasePage";
-import {useGetPosts} from "@/actions"
-import { data } from "@/data";
+import {useGetData} from "@/actions"
 
 
 const Portfolio = () => {
 
-  const {posts,error,loading} = useGetPosts();
+  const { data, error, loading } = useGetData(`/api/v1/posts`);
 
   const renderPosts = () => {
-    return posts.map((post) =>
+    return data.map((post) =>
      <li key={post.id}>
       <Link legacyBehavior href={`/portfolio/${post.id}`} >
         <a>
@@ -26,8 +25,8 @@ const Portfolio = () => {
       <p> Loading data .....</p>
 
       }
-      {posts &&
-        <ul>{renderPosts(posts)}</ul>
+      {data &&
+        <ul>{renderPosts(data)}</ul>
       }
       {error &&
       <div className="alert alert-danger">{error.message}</div>
