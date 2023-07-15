@@ -1,3 +1,4 @@
+// HEADER
 .port-navbar.port-default {
   width: 100%;
   z-index: 15;
@@ -10,10 +11,12 @@
       letter-spacing: 1px;
       font-weight: bold;
     }
+
     &-item {
       margin-left: 10px;
       margin-right: 10px;
     }
+    
     &-link {
       color: white;
       font-weight: bold;
@@ -29,7 +32,3 @@
     }
   }
 }
-
-
-
-

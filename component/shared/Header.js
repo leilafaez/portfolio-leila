@@ -16,13 +16,12 @@ const BsNavLink = (props) => {
     </Link>
   );
 };
-const LoginLink = () => (
-  <span className="nav-link port-navbar-link clickable">Login</span>
-);
+const BsNavBrand =()=><Link legacyBehavior href="/"><a className="navbar-brand port-navbar-brand">Leila Faez</a></Link>
+const LoginLink = () => <span className="nav-link port-navbar-link clickable">Login</span>
 
-const LogoutLink = () => (
-  <span className="nav-link port-navbar-link clickable">Logout</span>
-);
+
+const LogoutLink = () => <span className="nav-link port-navbar-link clickable">Logout</span>
+
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,11 +34,7 @@ const Header = () => {
         dark
         expand="md"
       >
-        <div className="navbar-brand">
-          <Link legacyBehavior href="/">
-            <a className="port-navbar-brand">Leila Faez</a>
-          </Link>
-        </div>
+        <BsNavBrand/>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
