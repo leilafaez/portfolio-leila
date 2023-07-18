@@ -17,7 +17,7 @@ const BsNavLink = (props) => {
   );
 };
 const BsNavBrand =()=><Link legacyBehavior href="/"><a className="navbar-brand port-navbar-brand">Leila Faez</a></Link>
-const LoginLink = () => <span className="nav-link port-navbar-link clickable">Login</span>
+const LoginLink = () => <BsNavLink href="/api/v1/login" title="Login"/>
 
 
 const LogoutLink = () => <span className="nav-link port-navbar-link clickable">Logout</span>
