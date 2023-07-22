@@ -13,11 +13,12 @@ const BsNavLink = (props) => {
 
 const BsNavBrand = () => (
   <Link href="/">
-    <a className="navbar-brand port-navbar-brand">Filip Jerga</a>
+    <a className="navbar-brand port-navbar-brand">Leila Faez</a>
   </Link>
 );
 
-const LoginLink = () => <BsNavLink href="/api/v1/login" title="Login" />;
+const LoginLink = () =>
+<a className="nav-link port-navbar-link" href="/api/v1/login">Login</a>
 
 const LogoutLink = () => (
   <span className="nav-link port-navbar-link clickable">Logout</span>
