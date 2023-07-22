@@ -1,31 +1,32 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  Nav,
-  NavItem,
-} from "reactstrap";
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
 
 const BsNavLink = (props) => {
   const { href, title } = props;
   return (
-    <Link legacyBehavior href={href}>
+    <Link href={href}>
       <a className="nav-link port-navbar-link">{title}</a>
     </Link>
   );
 };
-const BsNavBrand =()=><Link legacyBehavior href="/"><a className="navbar-brand port-navbar-brand">Leila Faez</a></Link>
-const LoginLink = () => <BsNavLink href="/api/v1/login" title="Login"/>
 
+const BsNavBrand = () => (
+  <Link href="/">
+    <a className="navbar-brand port-navbar-brand">Filip Jerga</a>
+  </Link>
+);
 
-const LogoutLink = () => <span className="nav-link port-navbar-link clickable">Logout</span>
+const LoginLink = () => <BsNavLink href="/api/v1/login" title="Login" />;
 
+const LogoutLink = () => (
+  <span className="nav-link port-navbar-link clickable">Logout</span>
+);
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+
   return (
     <div>
       <Navbar
@@ -34,7 +35,7 @@ const Header = () => {
         dark
         expand="md"
       >
-        <BsNavBrand/>
+        <BsNavBrand />
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -45,14 +46,14 @@ const Header = () => {
               <BsNavLink href="/about" title="About" />
             </NavItem>
             <NavItem className="port-navbar-item">
-              <BsNavLink href="/portfolio" title="Portfolio" />
+              <BsNavLink href="/portfolios" title="Portfolios" />
             </NavItem>
             <NavItem className="port-navbar-item">
               <BsNavLink href="/blogs" title="Blogs" />
             </NavItem>
-            {/* <NavItem className="port-navbar-item">
+            <NavItem className="port-navbar-item">
               <BsNavLink href="/cv" title="Cv" />
-            </NavItem> */}
+            </NavItem>
           </Nav>
           <Nav navbar>
             <NavItem className="port-navbar-item">
@@ -67,4 +68,5 @@ const Header = () => {
     </div>
   );
 };
+
 export default Header;

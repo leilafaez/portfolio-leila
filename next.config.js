@@ -1,13 +1,10 @@
+const path = require("path");
 const Dotenv = require("dotenv-webpack");
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-
+module.exports = {
   webpack: (config) => {
-    config.plugins.push(new Dotenv());
+    config.resolve.alias["@"] = path.resolve(__dirname);
+    config.plugins.push(new Dotenv({ silent: true }));
     return config;
   },
 };
-
-module.exports = nextConfig;
