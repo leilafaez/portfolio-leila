@@ -31,7 +31,7 @@ const getTitle =()=>{
   })
 }
 
-export const getServerSideProps =withAuth(async({req,res},user)=>{
+export const getServerSideProps =withAuth(async()=>{
   const title = await getTitle();
   return title;
 });
