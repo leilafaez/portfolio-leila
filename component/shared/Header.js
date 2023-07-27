@@ -62,16 +62,16 @@ const Header = ({user,loading}) => {
           <Nav navbar>
             {!loading && (
               <>
-                {user && (
+                {user && 
                   <NavItem className="port-navbar-item">
                     <LogoutLink />
                   </NavItem>
-                )}
-                {!user && (
+                }
+                {!user && 
                   <NavItem className="port-navbar-item">
                     <LoginLink />
                   </NavItem>
-                )}
+                }
               </>
             )}
           </Nav>
