@@ -1,8 +1,9 @@
 import { useGetUser } from "@/actions/user";
 import Redirect from "@/component/shared/Redirect";
+import { isAuthorized } from "@/utils/auth0";
 
-const withAuth = (Component) => {
-  return (props) => {
+const withAuth = Component => role=>{
+  return props => {
     const { data, loading } = useGetUser();
 
     if (loading) {
@@ -10,9 +11,12 @@ const withAuth = (Component) => {
     }
 
      if (!data) {
-       return <Redirect to="/api/v1/login" />;
+       return <Redirect ssr to="/api/v1/login" />;
      } else {
-       return <Component data={data} loading={loading} {...props} />;    
+      if (role && !isAuthorized(data,role)) {
+        return <Redirect ssr to="/api/v1/login" />;
+      }
+        return <Component user={data} loading={loading} {...props} />;    
        
      }
   };
