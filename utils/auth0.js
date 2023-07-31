@@ -35,14 +35,18 @@ export const authorizeUser = async (req, res) => {
   return session.user;
 };
 
-export const withAuth =(getData)=>async({req,res})=>{
+export const withAuth =getData=>role=>async({req,res})=>{
   const session = await auth0.getSession(req);
-  if (!session || !session.user) {
+  if (
+    !session ||
+    !session.user ||
+    (role && !isAuthorized(session.user, role))
+  ) {
     res.writeHead(302, {
       Location: "/api/v1/login",
     });
     res.end();
-    return {props:{}};
+    return { props: {} };
   }
   const data =getData ? await getData() : {};
   return {props :{user : session.user,...data}};
