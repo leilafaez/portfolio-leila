@@ -1,37 +1,38 @@
-import BaseLayout from "@/component/layouts/BaseLayout";
-import Link from "next/link";
-import BasePage from "@/component/BasePage";
-import {useGetPosts} from "@/actions";
-import { useGetUser } from "@/actions/user";
+import BaseLayout from '@/component/layouts/BaseLayout';
+import BasePage from '@/component/BasePage';
+import Link from 'next/link';
+import { useGetUser } from '@/actions/user';
+import PortfolioApi from '@/lib/api/portfolios';
 
+const Portfolio = ({ portfolios }) => {
+  
+  const { data: dataU, loading: loadingU } = useGetUser();
 
-const Portfolio = () => {
-
-  const { data, error, loading } = useGetPosts();
-
-  const renderPosts = () => {
-    return data.map((post) =>
-     <li key={post.id}>
-      <Link legacyBehavior href={`/portfolio/${post.id}`} >
-        <a>
-          {post.title}
-        </a>
-      </Link>
-     </li>);
+  const renderPortfolios = (portfolios) => {
+    return portfolios.map((portfolio) => (
+      <li key={portfolio._id} style={{ fontSize: "20px" }}>
+        <Link as={`/portfolios/${portfolio._id}`} href="/portfolios/[id]">
+          <a>{portfolio.title}</a>
+        </Link>
+      </li>
+    ));
   };
-  const { data:dataU, loading:loadingU } = useGetUser();
-
   return (
     <BaseLayout user={dataU} loading={loadingU}>
       <BasePage>
-        {loading && <p> Loading data .....</p>}
-        {data && <ul>{renderPosts(data)}</ul>}
-        {error && <div className="alert alert-danger">{error.message}</div>}
+        <ul>{renderPortfolios(portfolios)}</ul>
       </BasePage>
     </BaseLayout>
   );
 };
-
-
-
+// This function is called during the build time
+// Improved performance of page,
+// It will create static page with dynamic data
+export async function getStaticProps() {
+  const json = await new PortfolioApi().getAll();
+  const portfolios = json.data;
+  return {
+    props: { portfolios },
+  };
+}
 export default Portfolio;
