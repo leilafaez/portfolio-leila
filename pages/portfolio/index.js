@@ -3,27 +3,26 @@ import BasePage from '@/component/BasePage';
 import Link from 'next/link';
 import { useGetUser } from '@/actions/user';
 import PortfolioApi from '@/lib/api/portfolios';
+import {  Row,  Col} from "reactstrap";
+import PortfolioCard from '@/component/PortfolioCard';
 
 const Portfolio = ({ portfolios }) => {
-  
+
   const { data: dataU, loading: loadingU } = useGetUser();
 
-  const renderPortfolios = (portfolios) => {
-    return portfolios.map((portfolio) => (
-      <li key={portfolio._id} style={{ fontSize: "20px" }}>
-        <Link as={`/portfolios/${portfolio._id}`} href="/portfolios/[id]">
-          <a>{portfolio.title}</a>
-        </Link>
-      </li>
-    ));
-  };
-  return (
-    <BaseLayout user={dataU} loading={loadingU}>
-      <BasePage>
-        <ul>{renderPortfolios(portfolios)}</ul>
-      </BasePage>
-    </BaseLayout>
-  );
+    return (
+      <BaseLayout user={dataU} loading={loadingU}>
+        <BasePage className="portfolio-page">
+          <Row>
+            {portfolios.map((portfolio) => (
+              <Col key={portfolio.id} md="4">
+                <PortfolioCard portfolio={portfolio}/>
+              </Col>
+            ))}
+          </Row>
+        </BasePage>
+      </BaseLayout>
+    );
 };
 // This function is called during the build time
 // Improved performance of page,
