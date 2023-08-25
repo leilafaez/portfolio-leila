@@ -66,6 +66,13 @@ const Header = ({user,loading,className}) => {
             <NavItem className="port-navbar-item">
               <BsNavLink href="/onlyadminssr" title="AdminSSR" />
             </NavItem> */}
+            {/* <NavItem className="port-navbar-item">
+              <BsNavLink href="/portfolio/new" title="create" />
+            </NavItem> */}
+            {" "}
+            <NavItem className="port-navbar-item">
+              <BsNavLink href="/new" title="Secret" />
+            </NavItem>
           </Nav>
           <Nav navbar>
             {!loading && (

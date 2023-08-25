@@ -1,13 +1,14 @@
+import DatePicker from "react-datepicker";
 import { useForm } from "react-hook-form";
 
-const PortfolioForm = ({onSubmit}) => {
-    const {register,handleSubmit}=useForm();
+const PortfolioForm = ({ onSubmit }) => {
+  const { register, handleSubmit } = useForm();
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="form-group">
         <label htmlFor="title">Title</label>
         <input
-          ref={register}
+          // ref={register}
           name="title"
           type="text"
           className="form-control"
@@ -15,9 +16,9 @@ const PortfolioForm = ({onSubmit}) => {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="city">Company</label>
+        <label htmlFor="company">Company</label>
         <input
-          ref={register}
+          // ref={register}
           name="company"
           type="text"
           className="form-control"
@@ -25,9 +26,9 @@ const PortfolioForm = ({onSubmit}) => {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="city">Company Website</label>
+        <label htmlFor="companyWebsite">Company Website</label>
         <input
-          ref={register}
+          // ref={register}
           name="companyWebsite"
           type="text"
           className="form-control"
@@ -35,9 +36,9 @@ const PortfolioForm = ({onSubmit}) => {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="Location">Location</label>
+        <label htmlFor="location">Location</label>
         <input
-          ref={register}
+          // ref={register}
           name="location"
           type="text"
           className="form-control"
@@ -45,9 +46,9 @@ const PortfolioForm = ({onSubmit}) => {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="JobTitle">Job Title</label>
+        <label htmlFor="jobTitle">Job Title</label>
         <input
-          ref={register}
+          // ref={register}
           name="jobTitle"
           type="text"
           className="form-control"
@@ -57,7 +58,7 @@ const PortfolioForm = ({onSubmit}) => {
       <div className="form-group">
         <label htmlFor="description">Description</label>
         <textarea
-          ref={register}
+          // ref={register}
           name="description"
           rows="5"
           type="text"
@@ -67,11 +68,23 @@ const PortfolioForm = ({onSubmit}) => {
       </div>
       <div className="form-group">
         <label htmlFor="startDate">Start Date</label>
-        <div>{/* Date picker here */}</div>
+        <div>
+          <DatePicker
+            showYearDropdown
+            selected={new Date()}
+            onChange={() => {}}
+          />
+        </div>
       </div>
       <div className="form-group">
         <label htmlFor="endDate">End Date</label>
-        <div>{/* Date picker here */}</div>
+        <div>
+          <DatePicker
+            showYearDropdown
+            selected={new Date()}
+            onChange={() => {}}
+          />
+        </div>
       </div>
       <button type="submit" className="btn btn-primary">
         Create
@@ -79,5 +92,4 @@ const PortfolioForm = ({onSubmit}) => {
     </form>
   );
 };
-
 export default PortfolioForm;
