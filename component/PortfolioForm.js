@@ -86,7 +86,7 @@ const PortfolioForm = ({ onSubmit }) => {
           <DatePicker
             showYearDropdown
             selected={startDate}
-            onChange={handleDateChange("startDate",setStartDate)}
+            onChange={handleDateChange("startDate", setStartDate)}
           />
         </div>
       </div>
@@ -96,9 +96,34 @@ const PortfolioForm = ({ onSubmit }) => {
           <DatePicker
             showYearDropdown
             selected={endDate}
-            onChange={handleDateChange("endDate",setEndDate)}
+            onChange={handleDateChange("endDate", setEndDate)}
           />
         </div>
+      </div>
+      <div className="form-group">
+        {endDate && (
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={() => handleDateChange("endDate", setEndDate)(null)}
+          >
+            No End Date
+          </button>
+        )}
+        {!endDate && (
+          <button
+            type="button"
+            className="btn btn-success"
+            onClick={() =>
+              handleDateChange(
+                "endDate",
+                setEndDate
+              )(new Date(new Date().setHours(0, 0, 0, 0)))
+            }
+          >
+            Set End Date
+          </button>
+        )}
       </div>
       <button type="submit" className="btn btn-primary">
         Create
