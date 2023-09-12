@@ -21,7 +21,7 @@ export function useApiHandler(apiCall) {
       setReqState({ error: null, data: json.data, loading: false });
     } catch (e) {
       const message =
-        (e.response && e.response.message) || "Ooops, something went wrong...";
+        (e.response && e.response.data) || "Ooops, something went wrong...";
       setReqState({ error: message, data: null, loading: false });
     }
   };

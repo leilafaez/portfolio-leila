@@ -19,68 +19,68 @@ const PortfolioForm = ({ onSubmit }) => {
   }
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="form-group">
+      <div className="form-group mt-2">
         <label htmlFor="title">Title</label>
         <input
           // ref={register}
           name="title"
           type="text"
-          className="form-control"
+          className="form-control mt-2"
           id="title"
         />
       </div>
-      <div className="form-group">
+      <div className="form-group mt-2">
         <label htmlFor="company">Company</label>
         <input
           // ref={register}
           name="company"
           type="text"
-          className="form-control"
+          className="form-control mt-2"
           id="company"
         />
       </div>
-      <div className="form-group">
+      <div className="form-group mt-2">
         <label htmlFor="companyWebsite">Company Website</label>
         <input
           // ref={register}
           name="companyWebsite"
           type="text"
-          className="form-control"
+          className="form-control mt-2"
           id="companyWebsite"
         />
       </div>
-      <div className="form-group">
+      <div className="form-group mt-2">
         <label htmlFor="location">Location</label>
         <input
           // ref={register}
           name="location"
           type="text"
-          className="form-control"
+          className="form-control mt-2"
           id="location"
         />
       </div>
-      <div className="form-group">
+      <div className="form-group mt-2">
         <label htmlFor="jobTitle">Job Title</label>
         <input
           // ref={register}
           name="jobTitle"
           type="text"
-          className="form-control"
+          className="form-control mt-2"
           id="jobTitle"
         />
       </div>
-      <div className="form-group">
+      <div className="form-group mt-2">
         <label htmlFor="description">Description</label>
         <textarea
           // ref={register}
           name="description"
           rows="5"
           type="text"
-          className="form-control"
+          className="form-control mt-2"
           id="description"
         ></textarea>
       </div>
-      <div className="form-group">
+      <div className="form-group mt-2">
         <label htmlFor="startDate">Start Date</label>
         <div>
           <DatePicker
@@ -90,7 +90,7 @@ const PortfolioForm = ({ onSubmit }) => {
           />
         </div>
       </div>
-      <div className="form-group">
+      <div className="form-group mt-2">
         <label htmlFor="endDate">End Date</label>
         <div>
           <DatePicker
@@ -100,11 +100,11 @@ const PortfolioForm = ({ onSubmit }) => {
           />
         </div>
       </div>
-      <div className="form-group">
+      <div className="form-group mt-2">
         {endDate && (
           <button
             type="button"
-            className="btn btn-danger"
+            className="btn btn-danger mt-2"
             onClick={() => handleDateChange("endDate", setEndDate)(null)}
           >
             No End Date
@@ -113,7 +113,7 @@ const PortfolioForm = ({ onSubmit }) => {
         {!endDate && (
           <button
             type="button"
-            className="btn btn-success"
+            className="btn btn-success mt-2"
             onClick={() =>
               handleDateChange(
                 "endDate",
@@ -125,7 +125,7 @@ const PortfolioForm = ({ onSubmit }) => {
           </button>
         )}
       </div>
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn btn-primary mt-2">
         Create
       </button>
     </form>
