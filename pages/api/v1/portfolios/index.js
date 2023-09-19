@@ -3,7 +3,7 @@ import auth0 from "@/utils/auth0";
 
 export default async function createPortfolio(req, res) {
   try {
-    const {accessToken} =await auth0.getSession(req);
+    const { accessToken } = await auth0.getSession(req);
     await new PortfolioApi(accessToken).createPortfolio(req.body);
     return res.json(json.data);
   } catch (e) {

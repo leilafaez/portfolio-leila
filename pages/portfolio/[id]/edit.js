@@ -1,13 +1,16 @@
 import BaseLayout from "@/component/layouts/BaseLayout";
 import BasePage from "@/component/BasePage";
 import withAuth from "@/hoc/withAuth";
+import { useRouter } from "next/router";
+import { useGetPortfolio } from "@/actions/portfolios";
 
-
-const PortfolioEdit = () => {
- 
+const PortfolioEdit = ({user}) => {
+  const router =useRouter();
+  const {data}=useGetPortfolio(router.query.id);
+ debugger;
   return (
     <BaseLayout user={user} loading={false}>
-      <BasePage header="Portfolio Detail"></BasePage>
+      <BasePage header="Portfolio Edit"></BasePage>
     </BaseLayout>
   );
 };
