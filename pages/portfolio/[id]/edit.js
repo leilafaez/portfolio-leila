@@ -5,15 +5,17 @@ import { useRouter } from "next/router";
 import { useGetPortfolio, useUpdatePortfolio } from "@/actions/portfolios";
 import PortfolioForm from "@/component/PortfolioForm";
 import { Col, Row } from "reactstrap";
+import { toast } from "react-toastify";
 
 
 const PortfolioEdit = ({user}) => {
   const router =useRouter();
-  const [updatePortfolio, { data, error, loading }] = useUpdatePortfolio();
+  const [updatePortfolio, { error}] = useUpdatePortfolio();
   const {data : initialData}=useGetPortfolio(router.query.id);
   
-  const _updatePortfolio =()=>{
-    updatePortfolio(router.query.id,data);
+  const _updatePortfolio =async (data)=>{
+   await updatePortfolio(router.query.id,data);
+   toast.success("Portfolio has been updated!",{autoClose : 2000})
   }
 
   return (
