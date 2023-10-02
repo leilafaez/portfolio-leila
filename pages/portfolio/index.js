@@ -2,6 +2,7 @@ import BaseLayout from '@/component/layouts/BaseLayout';
 import BasePage from '@/component/BasePage';
 import { useRouter } from 'next/router';
 import { useGetUser } from '@/actions/user';
+import { useDeletePortfolio } from '@/actions/portfolios';
 import PortfolioApi from '@/lib/api/portfolios';
 import {  Row,  Col,Button} from "reactstrap";
 import PortfolioCard from '@/component/PortfolioCard';
@@ -9,7 +10,16 @@ import { isAuthorized } from '@/utils/auth0';
 
 const Portfolio = ({ portfolios }) => {
   const router = useRouter();
+  const [deletePortfolio , {data,error}] =useDeletePortfolio();
   const { data: dataU, loading: loadingU } = useGetUser();
+
+  const _deletePortfolio = async (e, portfolioId)=>{
+    e.stopPropagation();
+    const isConfirm = confirm("Are you sure you want to delete this portfolio?!");
+    if(isConfirm){
+      deletePortfolio(portfolioId);
+    }
+  }
 
     return (
       <BaseLayout user={dataU} loading={loadingU}>
@@ -24,20 +34,30 @@ const Portfolio = ({ portfolios }) => {
                 md="4"
               >
                 <PortfolioCard portfolio={portfolio}>
-                  {dataU && isAuthorized(dataU,"admin") &&
+                  {dataU && isAuthorized(dataU, "admin") && (
                     <>
-                      <Button onClick={(e)=>{
-                        e.stopPropagation();
-                        router.push("/portfolio/[id]/edit",`/portfolio/${portfolio._id}/edit`                       );
-                      }}
-                       className="btn-port" color="warning">
+                      <Button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          router.push(
+                            "/portfolio/[id]/edit",
+                            `/portfolio/${portfolio._id}/edit`
+                          );
+                        }}
+                        className="btn-port"
+                        color="warning"
+                      >
                         Edit
                       </Button>
-                      <Button className="btn-port" color="danger">
+                      <Button
+                        onClick={(e)=>_deletePortfolio(e, portfolio._id)}
+                        className="btn-port"
+                        color="danger"
+                      >
                         Delete
                       </Button>
                     </>
-                  }
+                  )}
                 </PortfolioCard>
               </Col>
             ))}
