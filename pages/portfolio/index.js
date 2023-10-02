@@ -1,5 +1,6 @@
 import BaseLayout from '@/component/layouts/BaseLayout';
 import BasePage from '@/component/BasePage';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useGetUser } from '@/actions/user';
 import { useDeletePortfolio } from '@/actions/portfolios';
@@ -8,8 +9,9 @@ import {  Row,  Col,Button} from "reactstrap";
 import PortfolioCard from '@/component/PortfolioCard';
 import { isAuthorized } from '@/utils/auth0';
 
-const Portfolio = ({ portfolios }) => {
+const Portfolio = ({ portfolios :initialPortfolios }) => {
   const router = useRouter();
+  const [portfolios, setPortfolios] = useState(initialPortfolios);
   const [deletePortfolio , {data,error}] =useDeletePortfolio();
   const { data: dataU, loading: loadingU } = useGetUser();
 
@@ -17,7 +19,8 @@ const Portfolio = ({ portfolios }) => {
     e.stopPropagation();
     const isConfirm = confirm("Are you sure you want to delete this portfolio?!");
     if(isConfirm){
-      deletePortfolio(portfolioId);
+    await deletePortfolio(portfolioId);
+      setPortfolios(portfolios.filter((p)=>p.id !==portfolioId))
     }
   }
 
