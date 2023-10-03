@@ -13,13 +13,14 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
+import ActiveLink from "./ActiveLink";
 
 const BsNavLink = (props) => {
   const { href, title, className = "" } = props;
   return (
-    <Link href={href}>
+    <ActiveLink activeClassName="active" href={href}>
       <a className={`nav-link port-navbar-link ${className}`}>{title}</a>
-    </Link>
+    </ActiveLink>
   );
 };
 
@@ -57,7 +58,7 @@ const AdminMenu = () => {
         <DropdownItem>
           <BsNavLink
             className="port-dropdown-item"
-            href="/portfolios/new"
+            href="/portfolio/new"
             title="Create Portfolio"
           />
         </DropdownItem>
@@ -105,14 +106,14 @@ const Header = ({ user, loading, className }) => {
                 <BsNavLink href="/about" title="About" />
               </NavItem>
               <NavItem className="port-navbar-item">
-                <BsNavLink href="/portfolios" title="Portfolios" />
+                <BsNavLink href="/portfolio" title="Portfolio" />
               </NavItem>
-              <NavItem className="port-navbar-item">
+              {/* <NavItem className="port-navbar-item">
                 <BsNavLink href="/blogs" title="Blogs" />
-              </NavItem>
-              <NavItem className="port-navbar-item">
+              </NavItem> */}
+              {/* <NavItem className="port-navbar-item">
                 <BsNavLink href="/cv" title="Cv" />
-              </NavItem>
+              </NavItem> */}
               {/* <NavItem className="port-navbar-item">
               <BsNavLink href="/secret" title="Secret"/>
             </NavItem>
