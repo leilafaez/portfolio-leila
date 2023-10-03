@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { isAuthorized } from "@/utils/auth0";
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
 
 const BsNavLink = (props) => {
@@ -30,17 +31,33 @@ const AdminMenu =()=>{
       className="port-navbar-link port-dropdown-menu"
       nav
       isOpen={isOpne}
-      toggle={() => {setIsOpen(!isOpne)}}
+      toggle={() => {
+        setIsOpen(!isOpne);
+      }}
     >
-      <DropdownToggle className="port-dropdown-toggle" nav carret>
+      <DropdownToggle className="port-dropdown-toggle" nav caret>
         Admin
       </DropdownToggle>
-      <DropdownMenu>
+      <DropdownMenu right>
         <DropdownItem>
           <BsNavLink
             className="port-dropdown-item"
             href="/portfolio/new"
             title="Create Portfolio"
+          />
+        </DropdownItem>
+        <DropdownItem>
+          <BsNavLink
+            className="port-dropdown-item"
+            href="/blogs/editor"
+            title="Blog Editor"
+          />
+        </DropdownItem>
+        <DropdownItem>
+          <BsNavLink
+            className="port-dropdown-item"
+            href="/blogs/dashboard"
+            title="Dashboard"
           />
         </DropdownItem>
       </DropdownMenu>
@@ -67,18 +84,18 @@ const Header = ({user,loading,className}) => {
             <NavItem className="port-navbar-item">
               <BsNavLink href="/" title="Home" />
             </NavItem>
-            <NavItem className="port-navbar-item">
+            {/* <NavItem className="port-navbar-item">
               <BsNavLink href="/about" title="About" />
-            </NavItem>
+            </NavItem> */}
             <NavItem className="port-navbar-item">
               <BsNavLink href="/portfolio" title="Portfolio" />
             </NavItem>
             <NavItem className="port-navbar-item">
               <BsNavLink href="/blogs" title="Blogs" />
             </NavItem>
-            <NavItem className="port-navbar-item">
+            {/* <NavItem className="port-navbar-item">
               <BsNavLink href="/cv" title="Cv" />
-            </NavItem>
+            </NavItem> */}
             {/* <NavItem className="port-navbar-item">
               <BsNavLink href="/secret" title="Secret" />
             </NavItem>
@@ -103,7 +120,7 @@ const Header = ({user,loading,className}) => {
               <>
                 {user && (
                   <>
-                    <AdminMenu />
+                    {isAuthorized(user, "admin") && <AdminMenu />}
                     <NavItem className="port-navbar-item">
                       <LogoutLink />
                     </NavItem>
