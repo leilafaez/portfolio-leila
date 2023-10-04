@@ -5,6 +5,7 @@
 @import './index';
 @import "./portfolios";
 @import "./about";
+@import "./portfolio-detail";
 
 
 html, body {
@@ -14,6 +15,14 @@ html, body {
 }
 .clickable {
   cursor: pointer;
+}
+.indexPage.noWrapper {
+  >.container{
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    height: 100%;
+  }
 }
 .base-page {
   padding: 150px 0;
