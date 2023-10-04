@@ -127,7 +127,7 @@ const Header = ({ user, loading, className }) => {
               <BsNavLink href="/onlyadminssr" title="AdminSSR"/>
             </NavItem> */}
             </Nav>
-            <Nav navbar>
+            <Nav navbar className="ms-auto">
               {!loading && (
                 <>
                   {user && (
