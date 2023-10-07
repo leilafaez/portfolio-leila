@@ -16,13 +16,13 @@ html, body {
 .clickable {
   cursor: pointer;
 }
-.indexPage.noWrapper {
-  >.container{
-    padding: 0;
-    margin: 0;
-    max-width: 100%;
-  }
-}
+// .detail-page{
+//   padding: 0;
+//   margin: 0;
+//   max-width: 0;
+ 
+
+// }
 .base-page {
   padding: 150px 0;
   color: black;
@@ -44,3 +44,4 @@ html, body {
   font-weight: bold;
   letter-spacing: 2px;
 }
+
