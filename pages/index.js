@@ -40,25 +40,29 @@ const Index = () => {
               <div className="hero-section">
                 <div className={`flipper ${isFlipping ? "isFlipping" : ""}`}>
                   <div className="front">
-                    <div className="hero-section-content">
-                      <h2> Full Stack Web Developer </h2>
-                      <div className="hero-section-content-intro">
-                        Have a look at my portfolio and job history.
+                    <div className="image image-1">
+                      <div className="hero-section-content">
+                        <h2> Full Stack Web Developer </h2>
+                        <div className="hero-section-content-intro">
+                          Have a look at my portfolio and job history.
+                        </div>
                       </div>
                     </div>
-                    <img className="image" src="/images/pic1.jpg" />
+
                     <div className="shadow-custom">
                       <div className="shadow-inner"> </div>
                     </div>
                   </div>
                   <div className="back">
-                    <div className="hero-section-content">
-                      <h2> Full Stack Web Developer </h2>
-                      <div className="hero-section-content-intro">
-                        Have a look at my portfolio and job history.
+                    <div className="image image-2">
+                      <div className="hero-section-content">
+                        <h2> Full Stack Web Developer </h2>
+                        <div className="hero-section-content-intro">
+                          Have a look at my portfolio and job history.
+                        </div>
                       </div>
                     </div>
-                    <img className="image" src="/images/pic2.jpg" />
+                   
                     <div className="shadow-custom shadow-custom-orange">
                       <div className="shadow-inner"> </div>
                     </div>
