@@ -10,12 +10,7 @@ const PortfolioForm = ({ onSubmit,initialData={} }) => {
   useEffect(()=>{
     register("startDate");
     register( "endDate");
-    // register("title");
-    // register("company");
-    // register("companyWebsite");
-    // register("location");
-    // register("jobTitle");
-    // register("description");
+   
     },[register])
 
 useEffect(() => {
