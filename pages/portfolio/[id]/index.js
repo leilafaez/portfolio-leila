@@ -28,7 +28,7 @@ const Portfolio = ({ portfolio }) => {
                 <>
                   <h1 className="cover-heading">{portfolio.title}</h1>
                   <p className="lead dates">
-                    {formatDate(portfolio.startDate)}--
+                    {formatDate(portfolio.startDate)} -
                     {formatDate(portfolio.endDate) || "Present"}
                   </p>
                   <p className="lead info mb-0">
