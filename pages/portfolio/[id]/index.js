@@ -42,7 +42,7 @@ const Portfolio = ({ portfolio }) => {
                       target="_"
                       className="btn btn-lg btn-secondary"
                     >
-                      Visit Company
+                      Visit Website
                     </a>
                   </p>
                 </>
