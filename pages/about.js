@@ -29,9 +29,10 @@ const About = () => {
           <Col md="6">
             <div className="left-side">
               <h1 className={`title ${createFadeInClass()}`}>Hello, Welcome</h1>
-              <h4 className={`subtitle ${createFadeInClass()}`}>
+              {/* <h4 className={`subtitle ${createFadeInClass()}`}>
                 To About Page
-              </h4>
+              </h4> */}
+              <img className={`title ${createFadeInClass()}`} src="/images/Leila profile.jpg"/>
               <p className={`subsubTitle ${createFadeInClass()}`}>
                 Feel free to read short description about me.
               </p>
