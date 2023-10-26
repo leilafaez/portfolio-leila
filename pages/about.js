@@ -32,7 +32,7 @@ const About = () => {
               {/* <h4 className={`subtitle ${createFadeInClass()}`}>
                 To About Page
               </h4> */}
-              <img className={`title ${createFadeInClass()}`} width={300} height={300} src="/images/Leila profile.jpg"/>
+              <img className={`image ${createFadeInClass()}`}  src="/images/Leila profile.jpg"/>
               <p className={`subsubTitle ${createFadeInClass()}`}>
                 Feel free to read short description about me.
               </p>
