@@ -39,7 +39,7 @@ const About = () => {
             </div>
           </Col>
           <Col md="6">
-            <div className={`${createFadeInClass()}`}>
+            <div className={`right-side ${createFadeInClass()}`}>
               <p>
                 My name is Leila Faez and I am an experienced software engineer
                 and full-stack developer.{" "}
