@@ -32,7 +32,10 @@ const About = () => {
               {/* <h4 className={`subtitle ${createFadeInClass()}`}>
                 To About Page
               </h4> */}
-              <img className={`image ${createFadeInClass()}`}  src="/images/Leila profile.jpg"/>
+              <img
+                className={`image ${createFadeInClass()}`}
+                src="/images/Leila profile.jpg"
+              />
               <p className={`subsubTitle ${createFadeInClass()}`}>
                 Feel free to read short description about me.
               </p>
@@ -41,18 +44,33 @@ const About = () => {
           <Col md="6">
             <div className={`right-side ${createFadeInClass()}`}>
               <p>
-                My name is Leila Faez and I am an experienced software engineer
-                and full-stack developer.{" "}
+                Welcome to my portfolio website! I'm Leila Faez, and I'm
+                passionate about the world of technology and software
+                development.{" "}
               </p>
               <p>
-                I have a Master's degree in Software Engineer and several years
-                of experience working on a wide range of roles and projects from
-                scrum master to system analyst.
+                With a Master's degree in Software Engineering and several years
+                of diverse experience, I've had the privilege of wearing
+                multiple hats in the software industry, from being a Scrum
+                Master to a System Analyst. This journey has not only sharpened
+                my technical skills but also enriched my ability to convey
+                complex programming concepts in a clear and comprehensible
+                manner, making me a versatile communicator in the realm of
+                technology.
               </p>
               <p>
-                Throughout my career, I have acquired advanced technical
-                knowledge and the ability to explain programming topics clearly
-                and in detail to a broad audience.
+                What truly drives me in this field is my insatiable curiosity
+                and relentless desire to stay on the cutting edge of software
+                development. I'm constantly seeking opportunities to innovate
+                and elevate the user experience.
+              </p>
+              <p>
+                This portfolio is a window into my world of software
+                engineering, a place where my work, my interests, and my
+                commitment to excellence converge. Feel free to explore the
+                projects I've shared here, and don't hesitate to reach out if
+                you'd like to collaborate, share ideas, or simply chat about the
+                exciting and ever-evolving world of technology.
               </p>
             </div>
           </Col>
