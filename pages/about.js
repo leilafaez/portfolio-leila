@@ -75,7 +75,6 @@ const About = () => {
             </div>
           </Col>
         </Row>
-        ;
       </BasePage>
     </BaseLayout>
   );
