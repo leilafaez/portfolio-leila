@@ -5,7 +5,7 @@ import React from "react";
 import Typed from "react-typed";
 import { useGetUser } from "@/actions/user";
 
-const Roles = ["Developer","Scrum master","System Analyst","Tech lover","Team player"];
+const Roles = ["Developer","Scrum master","Tech lover","Team player"];
 
 const Index = () => {
   const[isFlipping,setIsFlipping]=useState(false);
