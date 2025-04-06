@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider next build",
     "start-dev" :"cross-env NODE_ENV=production node server.js",
     "start": "next start",
     "lint": "next lint"
@@ -30,7 +30,5 @@
     "swr": "^2.2.0",
     "tslib": "^2.6.0"
   },
-  "engines": {
-    "node": "16.17.0"
-  }
+  "engines": { "node": "18.x" }
 }

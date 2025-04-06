@@ -37,7 +37,7 @@ const About = () => {
                 src="/images/Leila profile.jpg"
               />
               <p className={`subsubTitle ${createFadeInClass()}`}>
-                Feel free to read short description about me.
+                {/* Feel free to read short description about me. */}
               </p>
             </div>
           </Col>
@@ -49,14 +49,14 @@ const About = () => {
                 development.{" "}
               </p>
               <p>
-                With a Master's degree in Software Engineering and several years
+                {/* With a Master's degree in Software Engineering and several years
                 of diverse experience, I've had the privilege of wearing
                 multiple hats in the software industry, from being a Scrum
                 Master to a System Analyst. This journey has not only sharpened
                 my technical skills but also enriched my ability to convey
                 complex programming concepts in a clear and comprehensible
                 manner, making me a versatile communicator in the realm of
-                technology.
+                technology. */}
               </p>
               <p>
                 What truly drives me in this field is my insatiable curiosity
@@ -75,7 +75,6 @@ const About = () => {
             </div>
           </Col>
         </Row>
-        ;
       </BasePage>
     </BaseLayout>
   );
